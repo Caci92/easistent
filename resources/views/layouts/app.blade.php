@@ -27,6 +27,16 @@
                 </header>
             @endif
 
+            @if(session()->has('message'))
+                <p
+                    x-data="{ show: true }"
+                    x-show="show"
+                    x-transition
+                    x-init="setTimeout(() => show = false, 2000)"
+                    class="text-sm text-green-600 alert text-center w-full absolute mt-3"
+                >{{ session()->get('message') }}</p>
+            @endif
+
             <!-- Page Content -->
             <main>
                 {{ $slot }}

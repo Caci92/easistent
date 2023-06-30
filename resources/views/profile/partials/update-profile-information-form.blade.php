@@ -47,6 +47,14 @@
             @endif
         </div>
 
+        <div>
+            <label for="is_manager" class="inline-flex items-center">
+                <input id="is_manager" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="is_manager" @if(old('is_manager', $user->is_manager)) value="1" checked="checked" @endif>
+                <span class="ml-2 text-sm text-gray-600">{{ __('Is Manager') }}</span>
+            </label>
+            <x-input-error class="mt-2" :messages="$errors->get('is_manager')" />
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
